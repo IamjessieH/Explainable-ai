@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Explainable AI Design Assistant</title>
+  <link rel="stylesheet" href="styles/styles.css"/>
+</head>
+<body>
+  <main class="container">
+    <h1>Explainable AI Design Assistant</h1>
+
+    <label for="project">Project description</label>
+    <textarea id="project" rows="4" placeholder="e.g., user sign-up with email notifications"></textarea>
+
+    <div class="row">
+      <label>Test condition</label>
+      <select id="mode">
+        <option value="none">Non-explainable (baseline)</option>
+        <option value="reason">Reason only</option>
+        <option value="proscons">Pros & cons only</option>
+        <option value="both" selected>Both</option>
+      </select>
+    </div>
+
+    <button id="btnSuggest">Get design suggestion</button>
+
+    <section id="output" class="hidden">
+      <h2>Suggestion</h2>
+      <p id="suggestionText"></p>
+      <div id="explanations"></div>
+      <div class="row">
+        <a id="formLink" class="button" target="_blank" rel="noopener">I'm ready to fill in the feedback form</a>
+      </div>
+    </section>
+
+    <footer><small>Prototype for research – simulated AI output</small></footer>
+  </main>
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
+
