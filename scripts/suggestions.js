@@ -85,28 +85,20 @@ export function simulateSuggestion(text) {
   }
 
   return {
-    title: "Layered architecture with repository pattern",
-    summary: "Organizes the codebase so business rules stay clean while data access can evolve with confidence.",
-      intro: "When requirements are broad or still taking shape, I like to reach for a layered architecture backed by the repository pattern. It empowers the domain layer to speak in business language, while infrastructure details sit behind clear interfaces. You end up with a system diagram that is easy to share with new teammates and stakeholders: each layer has a mission statement and the code mirrors that intent.",
-      reason: "By structuring the project into presentation, application, domain, and infrastructure layers, you keep each concern focused. Repositories isolate persistence logic so you can swap data stores, experiment with caching, or add read models without unraveling core rules. The separation also makes design workshops more productive—domain experts stay in the conversation because the code honors the ubiquitous language you uncover together.",
-      practice: "Let use-case services coordinate workflows, repositories interact with data stores, and domain models enforce invariants. When a feature grows complex, you can insert decorators for validation, caching, or instrumentation without rewriting everything. Over time, you can introduce CQRS read models for analytics, integrate feature flags for experimentation, and add domain events that keep other services in sync without copying logic.",
+    title: "Tell me a bit more about the project",
+    summary: "I want to propose the most relevant design, so could you add a sentence about the workflow or feature you’re imagining?",
+    intro: "Right now I only caught a name or single noun, which doesn’t give me enough signal to choose an architecture confidently.",
+    reason: "A quick hint about the user goal, main data flow, or any constraints (e.g., scale, integrations, security) will help me tailor the recommendation.",
+    practice: "Try something like “internal analytics dashboard that ingests CSV uploads nightly” or “customer onboarding with email verification and role-based access.”",
     tips: [
-        "Start by identifying two or three core aggregates and define their repositories explicitly, documenting what each guarantees and which invariants they uphold.",
-        "Lean on dependency inversion—pass repositories or gateways into services so unit tests can supply fakes while integration tests use real adapters and seeds.",
-        "Write down the invariants your domain layer protects so newcomers know where to place logic, how to name concepts, and what must never be bypassed.",
-        "Pair up with product owners to create domain glossaries and sequence diagrams that live alongside the code—they become onboarding gold.",
-        "Schedule regular architecture reviews where you prune unused repositories or refactor boundaries before they calcify."
+      "Mention the primary action the system should support.",
+      "Call out any integrations or delivery channels involved.",
+      "Share the most important quality attribute (speed, reliability, compliance, etc.).",
+      "Include expected scale or user count if you know it.",
+      "Let me know constraints—budget, team size, or technology preferences."
     ],
-    pros: [
-      "Maintainable structure: changes cluster within a layer instead of rippling across unrelated parts of the stack.",
-      "Testable design: domain services run in lightweight unit tests while repositories receive dedicated integration coverage.",
-      "Extensible foundation: adding a new data source or API becomes wiring a new repository implementation rather than refactoring business rules."
-    ],
-    cons: [
-      "Additional boilerplate upfront, which can feel heavy for small teams or prototypes.",
-      "Requires discipline so controllers resist the temptation to reach directly into persistence concerns.",
-      "Onboarding can take longer if the team hasn’t worked with the pattern before, so budget for architectural documentation."
-    ]
+    pros: [],
+    cons: []
   };
 }
 
