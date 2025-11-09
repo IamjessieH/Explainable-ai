@@ -10,7 +10,7 @@ const suggestionText = document.getElementById("suggestionText");
 const explanationsDiv = document.getElementById("explanations");
 const formLink = document.getElementById("formLink");
 
-const GOOGLE_FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSeNWkS0yATOr62S3TjJtbf4NzJKlVW7MYKqgIt0mnbY2eeNHA/viewform?usp=header";
+const GOOGLE_FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSeNWkS0yATOr62S3TjJtbf4NzJKlVW7MYKqgIt0mnbY2eeNHA/viewform?usp=pp_url";
 
 btn.addEventListener("click", () => {
   const text = projectEl.value.trim();
@@ -36,11 +36,11 @@ btn.addEventListener("click", () => {
   });
 
   const params = new URLSearchParams({
-    mode,
-    suggestion: suggestion.title,
-    project: text
+    "entry.715075988": mode,
+    "entry.720940472": suggestion.title,
+    "entry.1828345896": text
   }).toString();
-  formLink.href = `${GOOGLE_FORM_BASE}?${params}`;
+  formLink.href = `${GOOGLE_FORM_BASE}&${params}`;
 
   output.classList.remove("hidden");
 });
